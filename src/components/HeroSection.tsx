@@ -39,22 +39,22 @@ export function HeroSection({
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-white/10 bg-[#05070E]"
+      className="relative overflow-hidden border-b border-slate-200 bg-white"
     >
-      {/* Subtle Animated Ambient Background Glow (transform/opacity only) */}
+      {/* Soft Purple & Sky Blue Ambient Gradient Washes (transform/opacity only) */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <motion.div
-          animate={{ opacity: [0.32, 0.48, 0.32], scale: [1, 1.06, 1] }}
+          animate={{ opacity: [0.45, 0.65, 0.45], scale: [1, 1.05, 1] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -top-40 left-1/4 h-[520px] w-[520px] rounded-full bg-violet-600/20 blur-[120px]"
+          className="absolute -top-36 left-1/4 h-[480px] w-[480px] rounded-full bg-violet-200/55 blur-[110px]"
         />
         <motion.div
-          animate={{ opacity: [0.25, 0.4, 0.25], scale: [1.04, 0.98, 1.04] }}
+          animate={{ opacity: [0.45, 0.65, 0.45], scale: [1.04, 0.98, 1.04] }}
           transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -bottom-32 right-1/6 h-[460px] w-[460px] rounded-full bg-blue-600/20 blur-[120px]"
+          className="absolute -bottom-32 right-1/6 h-[440px] w-[440px] rounded-full bg-sky-200/60 blur-[110px]"
         />
       </div>
 
@@ -68,12 +68,12 @@ export function HeroSection({
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col justify-center lg:col-span-6"
           >
-            <p className="text-sm font-medium tracking-wide text-violet-300">
+            <p className="text-sm font-semibold tracking-wide text-violet-700">
               We Turn Attention Into Growth
             </p>
 
             <h1
-              className="mt-4 font-display font-bold tracking-tight text-white"
+              className="mt-4 font-display font-bold tracking-tight text-slate-950"
               style={{
                 fontSize: 'clamp(2.25rem, 4.4vw, 3.85rem)',
                 lineHeight: 1.08,
@@ -84,7 +84,7 @@ export function HeroSection({
               <span className="accent-gradient-text">Amplify Your Growth.</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               We help businesses grow through strategic Meta Ads, creative social
               media marketing and performance-driven digital campaigns.
             </p>
@@ -93,7 +93,7 @@ export function HeroSection({
               <button
                 type="button"
                 onClick={onGetConsultation}
-                className="inline-flex items-center gap-2.5 rounded-lg px-6 py-3.5 text-sm font-semibold text-white accent-gradient-btn shadow-xl shadow-violet-950/50 transition-transform duration-150 hover:-translate-y-0.5 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                className="inline-flex items-center gap-2.5 rounded-lg px-6 py-3.5 text-sm font-semibold text-white accent-gradient-btn shadow-lg shadow-violet-500/25 transition-transform duration-150 hover:-translate-y-0.5 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600"
               >
                 <span>Get Free Consultation</span>
                 <ArrowRight className="h-4 w-4" />
@@ -102,14 +102,14 @@ export function HeroSection({
               <button
                 type="button"
                 onClick={onExploreWork}
-                className="inline-flex items-center gap-2.5 rounded-lg border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-100 transition-colors duration-150 hover:border-violet-400/50 hover:bg-white/10 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                className="inline-flex items-center gap-2.5 rounded-lg border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 shadow-xs transition-colors duration-150 hover:border-sky-400 hover:bg-sky-50/60 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               >
-                <PlayCircle className="h-4 w-4 text-violet-300" />
+                <PlayCircle className="h-4 w-4 text-sky-600" />
                 <span>Explore Our Work</span>
               </button>
             </div>
 
-            <p className="mt-8 text-xs text-slate-400">
+            <p className="mt-8 text-xs font-medium text-slate-500">
               Your Growth. Our Strategy. Measurable Results. · Facebook Ads ·
               Instagram Reels · Lead Generation
             </p>
@@ -122,7 +122,7 @@ export function HeroSection({
             transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6"
           >
-            <div className="relative h-full min-h-[320px] sm:min-h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-[#0B1020]">
+            <div className="relative h-full min-h-[320px] sm:min-h-[400px] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-xl shadow-slate-200/60">
               {!imgError ? (
                 <img
                   src="/src/assets/images/hero_agency_studio_1794976621038.jpg"
@@ -132,24 +132,24 @@ export function HeroSection({
                   className="h-full w-full object-cover lg:h-full"
                 />
               ) : (
-                <div className="flex h-full min-h-[360px] flex-col items-center justify-center bg-gradient-to-br from-[#0F172A] via-[#131936] to-[#080B14] p-8 text-center">
-                  <span className="font-display text-2xl font-bold text-white">
+                <div className="flex h-full min-h-[360px] flex-col items-center justify-center bg-gradient-to-br from-violet-100 via-white to-sky-100 p-8 text-center">
+                  <span className="font-display text-2xl font-bold text-slate-900">
                     META FLUX Studio
                   </span>
-                  <span className="mt-2 text-sm text-slate-400">
+                  <span className="mt-2 text-sm text-slate-600">
                     Creative Production &amp; Performance Media Buying
                   </span>
                 </div>
               )}
 
-              {/* Measured Scrim for 4.5:1+ contrast */}
+              {/* Measured Scrim for white text over photography */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#05070E]/90 via-[#05070E]/20 to-transparent"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"
               />
 
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
-                <p className="text-xs font-medium text-violet-300">
+                <p className="text-xs font-medium text-sky-300">
                   Performance Creative &amp; Media Buying
                 </p>
                 <p className="mt-1 font-display text-lg font-semibold text-white">
@@ -161,16 +161,16 @@ export function HeroSection({
         </div>
 
         {/* Full-Width 4-Column Agency Focus Strip Below Split */}
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           {FOCUS_STRIP.map((item) => (
-            <div key={item.index} className="bg-[#080C18] p-6">
-              <div className="font-mono text-xs text-violet-300 tabular-nums">
+            <div key={item.index} className="bg-white p-6">
+              <div className="font-mono text-xs font-semibold text-violet-600 tabular-nums">
                 {item.index}.
               </div>
-              <h2 className="mt-2 font-display text-base font-semibold text-white">
+              <h2 className="mt-2 font-display text-base font-semibold text-slate-900">
                 {item.title}
               </h2>
-              <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
+              <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
                 {item.detail}
               </p>
             </div>

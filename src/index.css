@@ -9,8 +9,8 @@
 @layer base {
   html {
     font-family: var(--font-sans);
-    background-color: #05070e;
-    color: #f1f5f9;
+    background-color: #ffffff;
+    color: #0f172a;
     scroll-behavior: smooth;
   }
 
@@ -24,25 +24,22 @@
 }
 
 .glass-surface {
-  background: linear-gradient(
-    180deg,
-    rgba(17, 24, 46, 0.72) 0%,
-    rgba(10, 14, 28, 0.86) 100%
-  );
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.08);
 }
 
 .accent-gradient-btn {
-  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #0ea5e9 100%);
 }
 
 .accent-gradient-btn:hover {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #6d28d9 0%, #0284c7 100%);
 }
 
 .accent-gradient-text {
-  background: linear-gradient(135deg, #c4b5fd 0%, #93c5fd 55%, #a78bfa 100%);
+  background: linear-gradient(135deg, #6d28d9 0%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -81,13 +81,13 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#05070E] text-slate-100">
+    <div className="min-h-screen bg-white text-slate-900">
       <Navbar onOpenConsultation={() => scrollToSection('contact')} />
 
       {loadError && (
         <div
           role="alert"
-          className="border-b border-rose-400/30 bg-rose-500/10 px-4 py-3 text-center text-xs text-rose-200"
+          className="border-b border-rose-200 bg-rose-50 px-4 py-3 text-center text-xs text-rose-700"
         >
           {loadError}{' '}
           <button

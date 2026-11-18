@@ -34,19 +34,19 @@ function CasePerformanceChart({ points }: { points: CaseStudyPoint[] }) {
     hoveredIndex !== null ? points[hoveredIndex] : points[points.length - 1];
 
   return (
-    <div className="rounded-xl border border-white/10 bg-[#050811] p-4">
+    <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-4">
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-        <span className="font-medium text-slate-300">
+        <span className="font-semibold text-slate-700">
           Leads Volume vs. CPL Trend
         </span>
-        <div className="flex items-center gap-3 font-mono text-slate-300 tabular-nums">
-          <span className="text-violet-300">
+        <div className="flex items-center gap-3 font-mono text-slate-700 tabular-nums">
+          <span className="font-semibold text-violet-700">
             {activePoint.label}: {activePoint.leads} leads
           </span>
-          <span aria-hidden="true" className="text-slate-600">
+          <span aria-hidden="true" className="text-slate-300">
             /
           </span>
-          <span className="text-blue-300">
+          <span className="font-semibold text-sky-600">
             ${activePoint.cpl.toFixed(2)} CPL
           </span>
         </div>
@@ -60,8 +60,8 @@ function CasePerformanceChart({ points }: { points: CaseStudyPoint[] }) {
       >
         <defs>
           <linearGradient id="leadBarGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="#2563eb" stopOpacity="0.35" />
+            <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.55" />
           </linearGradient>
         </defs>
 
@@ -75,7 +75,7 @@ function CasePerformanceChart({ points }: { points: CaseStudyPoint[] }) {
               x2={width - padX}
               y1={y}
               y2={y}
-              stroke="rgba(255,255,255,0.06)"
+              stroke="rgba(15,23,42,0.08)"
               strokeDasharray="3 3"
             />
           );
@@ -109,7 +109,7 @@ function CasePerformanceChart({ points }: { points: CaseStudyPoint[] }) {
                 x={x + barWidth / 2}
                 y={height - 6}
                 textAnchor="middle"
-                fill="#94a3b8"
+                fill="#475569"
                 fontSize="10"
                 fontFamily="JetBrains Mono, monospace"
               >
@@ -122,8 +122,8 @@ function CasePerformanceChart({ points }: { points: CaseStudyPoint[] }) {
         {/* CPL Trend Line */}
         <polyline
           fill="none"
-          stroke="#60a5fa"
-          strokeWidth="2"
+          stroke="#0284c7"
+          strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
           points={linePoints}
@@ -138,9 +138,9 @@ function CasePerformanceChart({ points }: { points: CaseStudyPoint[] }) {
               key={`dot-${point.label}`}
               cx={cx}
               cy={cy}
-              r={hoveredIndex === i ? 4.5 : 3}
-              fill="#93c5fd"
-              stroke="#050811"
+              r={hoveredIndex === i ? 4.5 : 3.2}
+              fill="#0ea5e9"
+              stroke="#ffffff"
               strokeWidth="1.5"
             />
           );
@@ -163,22 +163,22 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
   return (
     <section
       id="case-studies"
-      className="border-b border-white/10 bg-[#05070E] py-20 lg:py-24"
+      className="border-b border-slate-200 bg-white py-20 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium text-violet-300">
+            <p className="text-sm font-semibold text-violet-700">
               Campaign Case Studies
             </p>
             <h2
-              className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl"
+              className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl"
               style={{ textWrap: 'balance' }}
             >
               Structured Execution &amp; Performance Benchmarks
             </h2>
           </div>
-          <p className="max-w-md text-xs leading-relaxed text-slate-400">
+          <p className="max-w-md text-xs leading-relaxed text-slate-500">
             Note: Campaigns marked Demonstration Data illustrate our reporting
             architecture and sample benchmarks until verified client numbers are
             entered in Admin.
@@ -195,13 +195,13 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="glass-surface rounded-2xl border border-white/10 p-6 sm:p-8"
+                className="glass-surface rounded-2xl border border-slate-200 p-6 sm:p-8"
               >
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
                   {/* Left Narrative & Details */}
                   <div className="lg:col-span-7">
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
-                      <span className="font-medium text-blue-300">
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                      <span className="font-semibold text-sky-600">
                         {study.industry}
                       </span>
                       <span aria-hidden="true">·</span>
@@ -216,34 +216,34 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
                       </span>
                     </div>
 
-                    <h3 className="mt-2.5 font-display text-2xl font-bold text-white">
+                    <h3 className="mt-2.5 font-display text-2xl font-bold text-slate-950">
                       {study.clientName}
                     </h3>
 
                     <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div>
-                        <p className="text-xs font-medium text-slate-400">
+                        <p className="text-xs font-semibold text-slate-500">
                           Campaign Objective
                         </p>
-                        <p className="mt-1 text-sm text-slate-200">
+                        <p className="mt-1 text-sm text-slate-800">
                           {study.objective}
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-slate-400">
+                        <p className="text-xs font-semibold text-slate-500">
                           Advertising Strategy
                         </p>
-                        <p className="mt-1 text-sm text-slate-200">
+                        <p className="mt-1 text-sm text-slate-800">
                           {study.strategy}
                         </p>
                       </div>
                     </div>
 
-                    <div className="mt-6 border-t border-white/10 pt-5">
-                      <p className="text-xs font-medium text-violet-300">
+                    <div className="mt-6 border-t border-slate-200 pt-5">
+                      <p className="text-xs font-semibold text-violet-700">
                         Campaign Results
                       </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                      <p className="mt-1 text-sm leading-relaxed text-slate-700">
                         {study.resultsSummary}
                       </p>
                     </div>
@@ -252,27 +252,27 @@ export function CaseStudiesSection({ caseStudies }: CaseStudiesSectionProps) {
                   {/* Right KPI Grid & SVG Chart */}
                   <div className="space-y-4 lg:col-span-5">
                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2">
-                      <div className="rounded-xl border border-white/10 bg-[#050811] p-3.5">
-                        <p className="text-xs text-slate-400">Ad Budget</p>
-                        <p className="mt-1 font-mono text-base font-semibold text-white tabular-nums">
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5">
+                        <p className="text-xs text-slate-500">Ad Budget</p>
+                        <p className="mt-1 font-mono text-base font-semibold text-slate-900 tabular-nums">
                           {study.adBudget}
                         </p>
                       </div>
-                      <div className="rounded-xl border border-white/10 bg-[#050811] p-3.5">
-                        <p className="text-xs text-slate-400">Leads Generated</p>
-                        <p className="mt-1 font-mono text-base font-semibold text-violet-300 tabular-nums">
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5">
+                        <p className="text-xs text-slate-500">Leads Generated</p>
+                        <p className="mt-1 font-mono text-base font-semibold text-violet-700 tabular-nums">
                           {study.leadsGenerated.toLocaleString()}
                         </p>
                       </div>
-                      <div className="rounded-xl border border-white/10 bg-[#050811] p-3.5">
-                        <p className="text-xs text-slate-400">Cost Per Lead</p>
-                        <p className="mt-1 font-mono text-base font-semibold text-blue-300 tabular-nums">
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5">
+                        <p className="text-xs text-slate-500">Cost Per Lead</p>
+                        <p className="mt-1 font-mono text-base font-semibold text-sky-600 tabular-nums">
                           {study.costPerLead}
                         </p>
                       </div>
-                      <div className="rounded-xl border border-white/10 bg-[#050811] p-3.5">
-                        <p className="text-xs text-slate-400">Duration</p>
-                        <p className="mt-1 font-mono text-base font-semibold text-white tabular-nums">
+                      <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5">
+                        <p className="text-xs text-slate-500">Duration</p>
+                        <p className="mt-1 font-mono text-base font-semibold text-slate-900 tabular-nums">
                           {study.duration}
                         </p>
                       </div>

@@ -57,7 +57,6 @@ export function AdminDashboard({
   const [statusNotice, setStatusNotice] = useState<string | null>(null);
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
 
-  // Enquiries & Media Library
   const [enquiries, setEnquiries] = useState<ContactEnquiry[]>([]);
   const [mediaLibrary, setMediaLibrary] = useState<MediaAsset[]>([]);
 
@@ -233,7 +232,9 @@ export function AdminDashboard({
   const handleSavePortfolioProject = async (e: FormEvent) => {
     e.preventDefault();
     if (!projTitle.trim() || !projDescription.trim() || !projMediaUrl.trim()) {
-      showError('Project title, description, and an uploaded image/video are required.');
+      showError(
+        'Project title, description, and an uploaded image/video are required.',
+      );
       return;
     }
 
@@ -392,33 +393,33 @@ export function AdminDashboard({
   };
 
   return (
-    <div className="min-h-screen bg-[#05070E] text-slate-100">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* Top Admin Header */}
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-[#070B16]/95 backdrop-blur-xl">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={onCloseAdmin}
-              className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-semibold text-slate-200 hover:bg-white/10 cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 cursor-pointer"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               <span>Back to Website</span>
             </button>
-            <h1 className="font-display text-lg font-bold text-white">
+            <h1 className="font-display text-lg font-bold text-slate-950">
               META FLUX Agency Admin
             </h1>
           </div>
 
           {user && (
             <div className="flex items-center gap-3">
-              <span className="hidden sm:inline text-xs text-slate-400">
+              <span className="hidden sm:inline text-xs text-slate-500">
                 {user.email}
               </span>
               <button
                 type="button"
                 onClick={handleSignOut}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white cursor-pointer"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 cursor-pointer"
               >
                 <LogOut className="h-3.5 w-3.5" />
                 <span>Sign Out</span>
@@ -430,22 +431,22 @@ export function AdminDashboard({
 
       <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {authLoading ? (
-          <div className="glass-surface mx-auto max-w-md rounded-2xl border border-white/10 p-8 text-center">
-            <p className="text-sm text-slate-300">Checking authentication...</p>
+          <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+            <p className="text-sm text-slate-600">Checking authentication...</p>
           </div>
         ) : !user ? (
-          <div className="glass-surface mx-auto max-w-md rounded-2xl border border-white/15 p-8 text-center">
-            <h2 className="font-display text-2xl font-bold text-white">
+          <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+            <h2 className="font-display text-2xl font-bold text-slate-950">
               Agency Owner Sign In
             </h2>
-            <p className="mt-2 text-sm text-slate-400">
+            <p className="mt-2 text-sm text-slate-600">
               Sign in with Google to manage portfolio projects, upload project
               images and videos, edit pricing plans, and review client
               enquiries.
             </p>
 
             {authError && (
-              <p className="mt-4 rounded-lg border border-rose-400/30 bg-rose-500/10 p-3 text-xs text-rose-200">
+              <p className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-xs text-rose-700">
                 {authError}
               </p>
             )}
@@ -453,7 +454,7 @@ export function AdminDashboard({
             <button
               type="button"
               onClick={handleGoogleSignIn}
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-white accent-gradient-btn cursor-pointer"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-white accent-gradient-btn shadow-md shadow-violet-500/20 cursor-pointer"
             >
               <span>Sign in with Google</span>
             </button>
@@ -462,7 +463,7 @@ export function AdminDashboard({
           <div>
             {/* Status Banners */}
             {statusNotice && (
-              <div className="mb-6 flex items-center justify-between rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+              <div className="mb-6 flex items-center justify-between rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
                 <span>{statusNotice}</span>
                 <button
                   type="button"
@@ -475,7 +476,7 @@ export function AdminDashboard({
             )}
 
             {errorNotice && (
-              <div className="mb-6 flex items-center justify-between rounded-xl border border-rose-400/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">
+              <div className="mb-6 flex items-center justify-between rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
                 <span>{errorNotice}</span>
                 <button
                   type="button"
@@ -488,14 +489,14 @@ export function AdminDashboard({
             )}
 
             {/* Admin Tabs */}
-            <div className="flex flex-wrap items-center gap-2 border-b border-white/10 pb-4">
+            <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 pb-4">
               <button
                 type="button"
                 onClick={() => setActiveTab('portfolio')}
                 className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold cursor-pointer ${
                   activeTab === 'portfolio'
-                    ? 'accent-gradient-btn text-white'
-                    : 'border border-white/10 bg-white/5 text-slate-300 hover:text-white'
+                    ? 'accent-gradient-btn text-white shadow-sm'
+                    : 'border border-slate-200 bg-white text-slate-700 hover:border-sky-300'
                 }`}
               >
                 <FolderKanban className="h-4 w-4" />
@@ -506,8 +507,8 @@ export function AdminDashboard({
                 onClick={() => setActiveTab('pricing')}
                 className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold cursor-pointer ${
                   activeTab === 'pricing'
-                    ? 'accent-gradient-btn text-white'
-                    : 'border border-white/10 bg-white/5 text-slate-300 hover:text-white'
+                    ? 'accent-gradient-btn text-white shadow-sm'
+                    : 'border border-slate-200 bg-white text-slate-700 hover:border-sky-300'
                 }`}
               >
                 <DollarSign className="h-4 w-4" />
@@ -518,8 +519,8 @@ export function AdminDashboard({
                 onClick={() => setActiveTab('team')}
                 className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold cursor-pointer ${
                   activeTab === 'team'
-                    ? 'accent-gradient-btn text-white'
-                    : 'border border-white/10 bg-white/5 text-slate-300 hover:text-white'
+                    ? 'accent-gradient-btn text-white shadow-sm'
+                    : 'border border-slate-200 bg-white text-slate-700 hover:border-sky-300'
                 }`}
               >
                 <Users className="h-4 w-4" />
@@ -530,8 +531,8 @@ export function AdminDashboard({
                 onClick={() => setActiveTab('cases')}
                 className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold cursor-pointer ${
                   activeTab === 'cases'
-                    ? 'accent-gradient-btn text-white'
-                    : 'border border-white/10 bg-white/5 text-slate-300 hover:text-white'
+                    ? 'accent-gradient-btn text-white shadow-sm'
+                    : 'border border-slate-200 bg-white text-slate-700 hover:border-sky-300'
                 }`}
               >
                 <BarChart3 className="h-4 w-4" />
@@ -542,8 +543,8 @@ export function AdminDashboard({
                 onClick={() => setActiveTab('enquiries')}
                 className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold cursor-pointer ${
                   activeTab === 'enquiries'
-                    ? 'accent-gradient-btn text-white'
-                    : 'border border-white/10 bg-white/5 text-slate-300 hover:text-white'
+                    ? 'accent-gradient-btn text-white shadow-sm'
+                    : 'border border-slate-200 bg-white text-slate-700 hover:border-sky-300'
                 }`}
               >
                 <Inbox className="h-4 w-4" />
@@ -558,10 +559,10 @@ export function AdminDashboard({
                 <div className="lg:col-span-5">
                   <form
                     onSubmit={handleSavePortfolioProject}
-                    className="glass-surface space-y-4 rounded-2xl border border-white/10 p-6"
+                    className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs"
                   >
                     <div className="flex items-center justify-between">
-                      <h2 className="font-display text-lg font-bold text-white">
+                      <h2 className="font-display text-lg font-bold text-slate-950">
                         {editingProjectId
                           ? 'Edit Portfolio Project'
                           : 'Add Portfolio Project'}
@@ -570,7 +571,7 @@ export function AdminDashboard({
                         <button
                           type="button"
                           onClick={resetProjectForm}
-                          className="text-xs text-violet-300 hover:underline cursor-pointer"
+                          className="text-xs font-semibold text-violet-700 hover:underline cursor-pointer"
                         >
                           Cancel Edit
                         </button>
@@ -578,7 +579,7 @@ export function AdminDashboard({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300">
+                      <label className="block text-xs font-semibold text-slate-700">
                         Project Title *
                       </label>
                       <input
@@ -587,18 +588,18 @@ export function AdminDashboard({
                         value={projTitle}
                         onChange={(e) => setProjTitle(e.target.value)}
                         placeholder="e.g., Nova Dental — Meta Lead Funnel"
-                        className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3.5 py-2 text-sm text-white focus:border-violet-400 focus:outline-none"
+                        className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2 text-sm text-slate-900 focus:border-violet-500 focus:bg-white focus:outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300">
+                      <label className="block text-xs font-semibold text-slate-700">
                         Category *
                       </label>
                       <select
                         value={projCategory}
                         onChange={(e) => setProjCategory(e.target.value)}
-                        className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3.5 py-2 text-sm text-white focus:border-violet-400 focus:outline-none"
+                        className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2 text-sm text-slate-900 focus:border-violet-500 focus:bg-white focus:outline-none"
                       >
                         {PROJECT_CATEGORIES.map((cat) => (
                           <option key={cat} value={cat}>
@@ -609,10 +610,10 @@ export function AdminDashboard({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300">
+                      <label className="block text-xs font-semibold text-slate-700">
                         Upload Project Image or Video (max 25MB)
                       </label>
-                      <label className="mt-1.5 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-violet-400/40 bg-violet-500/10 px-4 py-3 text-xs font-semibold text-violet-200 hover:bg-violet-500/20">
+                      <label className="mt-1.5 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-violet-300 bg-violet-50/70 px-4 py-3 text-xs font-semibold text-violet-700 hover:bg-violet-100/70">
                         <Upload className="h-4 w-4" />
                         <span>
                           {uploadingMedia
@@ -633,7 +634,7 @@ export function AdminDashboard({
 
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                       <div className="sm:col-span-2">
-                        <label className="block text-xs font-medium text-slate-300">
+                        <label className="block text-xs font-semibold text-slate-700">
                           Media URL *
                         </label>
                         <input
@@ -642,11 +643,11 @@ export function AdminDashboard({
                           value={projMediaUrl}
                           onChange={(e) => setProjMediaUrl(e.target.value)}
                           placeholder="/api/media/1 or asset path"
-                          className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white focus:border-violet-400 focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 focus:border-violet-500 focus:bg-white focus:outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-slate-300">
+                        <label className="block text-xs font-semibold text-slate-700">
                           Media Type
                         </label>
                         <select
@@ -656,7 +657,7 @@ export function AdminDashboard({
                               e.target.value === 'video' ? 'video' : 'image',
                             )
                           }
-                          className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white focus:border-violet-400 focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 focus:border-violet-500 focus:bg-white focus:outline-none"
                         >
                           <option value="image">Image</option>
                           <option value="video">Video</option>
@@ -665,7 +666,7 @@ export function AdminDashboard({
                     </div>
 
                     {projMediaUrl && (
-                      <div className="overflow-hidden rounded-lg border border-white/10 bg-black">
+                      <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
                         {projMediaType === 'video' ? (
                           <video
                             src={projMediaUrl}
@@ -684,7 +685,7 @@ export function AdminDashboard({
                     )}
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300">
+                      <label className="block text-xs font-semibold text-slate-700">
                         Project Description *
                       </label>
                       <textarea
@@ -693,13 +694,13 @@ export function AdminDashboard({
                         value={projDescription}
                         onChange={(e) => setProjDescription(e.target.value)}
                         placeholder="Describe campaign objective, creative format, and outcome..."
-                        className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3.5 py-2 text-sm text-white focus:border-violet-400 focus:outline-none"
+                        className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2 text-sm text-slate-900 focus:border-violet-500 focus:bg-white focus:outline-none"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                       <div>
-                        <label className="block text-xs font-medium text-slate-300">
+                        <label className="block text-xs font-semibold text-slate-700">
                           Client Label
                         </label>
                         <input
@@ -707,11 +708,11 @@ export function AdminDashboard({
                           value={projClientLabel}
                           onChange={(e) => setProjClientLabel(e.target.value)}
                           placeholder="e.g., Nova Dental"
-                          className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white focus:border-violet-400 focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 focus:border-violet-500 focus:bg-white focus:outline-none"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-slate-300">
+                        <label className="block text-xs font-semibold text-slate-700">
                           Result Note
                         </label>
                         <input
@@ -719,17 +720,17 @@ export function AdminDashboard({
                           value={projMetricSummary}
                           onChange={(e) => setProjMetricSummary(e.target.value)}
                           placeholder="e.g., 140 Qualified Leads"
-                          className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white focus:border-violet-400 focus:outline-none"
+                          className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 focus:border-violet-500 focus:bg-white focus:outline-none"
                         />
                       </div>
                     </div>
 
-                    <label className="flex items-center gap-2.5 text-xs text-slate-300 cursor-pointer">
+                    <label className="flex items-center gap-2.5 text-xs text-slate-700 cursor-pointer">
                       <input
                         type="checkbox"
                         checked={projIsDemo}
                         onChange={(e) => setProjIsDemo(e.target.checked)}
-                        className="rounded border-white/20 bg-black"
+                        className="rounded border-slate-300"
                       />
                       <span>Label as Sample Work (demo project)</span>
                     </label>
@@ -750,20 +751,19 @@ export function AdminDashboard({
                     </button>
                   </form>
 
-                  {/* Uploaded Media Library Quick Picker */}
                   {mediaLibrary.length > 0 && (
-                    <div className="mt-6 glass-surface rounded-2xl border border-white/10 p-5">
-                      <h3 className="font-display text-sm font-semibold text-white">
+                    <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+                      <h3 className="font-display text-sm font-semibold text-slate-950">
                         Uploaded Media Library ({mediaLibrary.length})
                       </h3>
                       <div className="mt-3 space-y-2 max-h-56 overflow-y-auto pr-1">
                         {mediaLibrary.map((item) => (
                           <div
                             key={item.id}
-                            className="flex items-center justify-between gap-2 rounded-lg border border-white/10 bg-[#050811] px-3 py-2 text-xs"
+                            className="flex items-center justify-between gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs"
                           >
                             <div className="min-w-0">
-                              <p className="truncate font-medium text-slate-200">
+                              <p className="truncate font-medium text-slate-800">
                                 {item.filename}
                               </p>
                               <p className="text-slate-500">
@@ -777,7 +777,7 @@ export function AdminDashboard({
                                 setProjMediaUrl(item.url);
                                 setProjMediaType(item.mediaType);
                               }}
-                              className="shrink-0 rounded border border-violet-400/40 bg-violet-500/10 px-2.5 py-1 text-violet-200 hover:bg-violet-500/20 cursor-pointer"
+                              className="shrink-0 rounded border border-violet-300 bg-violet-50 px-2.5 py-1 font-medium text-violet-700 hover:bg-violet-100 cursor-pointer"
                             >
                               Use
                             </button>
@@ -790,17 +790,17 @@ export function AdminDashboard({
 
                 {/* Existing Projects List */}
                 <div className="space-y-4 lg:col-span-7">
-                  <h2 className="font-display text-lg font-bold text-white">
+                  <h2 className="font-display text-lg font-bold text-slate-950">
                     Published Portfolio Items ({portfolio.length})
                   </h2>
 
                   {portfolio.map((project) => (
                     <div
                       key={project.id}
-                      className="glass-surface flex flex-col gap-4 rounded-xl border border-white/10 p-4 sm:flex-row sm:items-center sm:justify-between"
+                      className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-xs sm:flex-row sm:items-center sm:justify-between"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="h-20 w-28 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-black">
+                        <div className="h-20 w-28 shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
                           {project.mediaType === 'video' ? (
                             <video
                               src={project.mediaUrl}
@@ -817,14 +817,14 @@ export function AdminDashboard({
                           )}
                         </div>
                         <div>
-                          <p className="text-xs text-violet-300">
+                          <p className="text-xs font-medium text-violet-700">
                             {project.category} ·{' '}
                             {project.isDemo ? 'Sample Work' : 'Client Project'}
                           </p>
-                          <h3 className="font-display text-base font-semibold text-white">
+                          <h3 className="font-display text-base font-semibold text-slate-950">
                             {project.title}
                           </h3>
-                          <p className="mt-1 line-clamp-2 text-xs text-slate-400">
+                          <p className="mt-1 line-clamp-2 text-xs text-slate-600">
                             {project.description}
                           </p>
                         </div>
@@ -846,7 +846,7 @@ export function AdminDashboard({
                             setProjMetricSummary(project.metricSummary || '');
                             setProjIsDemo(project.isDemo);
                           }}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-white/10 cursor-pointer"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-100 cursor-pointer"
                         >
                           <Edit3 className="h-3.5 w-3.5" />
                           <span>Edit</span>
@@ -856,7 +856,7 @@ export function AdminDashboard({
                           <button
                             type="button"
                             onClick={() => handleDeleteProject(project.id)}
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-rose-400/50 bg-rose-500/20 px-3 py-2 text-xs font-semibold text-rose-200 cursor-pointer"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-rose-300 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-700 cursor-pointer"
                           >
                             <Check className="h-3.5 w-3.5" />
                             <span>Confirm</span>
@@ -865,7 +865,7 @@ export function AdminDashboard({
                           <button
                             type="button"
                             onClick={() => setConfirmDeleteId(project.id)}
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs font-medium text-rose-300 hover:bg-rose-500/10 cursor-pointer"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-rose-600 hover:bg-rose-50 cursor-pointer"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
                             <span>Delete</span>
@@ -893,40 +893,40 @@ export function AdminDashboard({
                   return (
                     <div
                       key={plan.id}
-                      className="glass-surface rounded-2xl border border-white/10 p-6"
+                      className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs"
                     >
                       {isEditing ? (
                         <form
                           onSubmit={handleSavePricingPlan}
                           className="space-y-4"
                         >
-                          <h3 className="font-display text-lg font-bold text-white">
+                          <h3 className="font-display text-lg font-bold text-slate-950">
                             Edit {plan.name}
                           </h3>
                           <div>
-                            <label className="block text-xs text-slate-300">
+                            <label className="block text-xs font-semibold text-slate-700">
                               Price Display
                             </label>
                             <input
                               type="text"
                               value={planPrice}
                               onChange={(e) => setPlanPrice(e.target.value)}
-                              className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                              className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                             />
                           </div>
                           <div>
-                            <label className="block text-xs text-slate-300">
+                            <label className="block text-xs font-semibold text-slate-700">
                               Tagline
                             </label>
                             <input
                               type="text"
                               value={planTagline}
                               onChange={(e) => setPlanTagline(e.target.value)}
-                              className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                              className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                             />
                           </div>
                           <div>
-                            <label className="block text-xs text-slate-300">
+                            <label className="block text-xs font-semibold text-slate-700">
                               Billing Note
                             </label>
                             <input
@@ -935,11 +935,11 @@ export function AdminDashboard({
                               onChange={(e) =>
                                 setPlanBillingNote(e.target.value)
                               }
-                              className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                              className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                             />
                           </div>
                           <div>
-                            <label className="block text-xs text-slate-300">
+                            <label className="block text-xs font-semibold text-slate-700">
                               Deliverables (one per line)
                             </label>
                             <textarea
@@ -948,10 +948,10 @@ export function AdminDashboard({
                               onChange={(e) =>
                                 setPlanFeaturesText(e.target.value)
                               }
-                              className="mt-1 w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white"
+                              className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900"
                             />
                           </div>
-                          <label className="flex items-center gap-2 text-xs text-slate-300">
+                          <label className="flex items-center gap-2 text-xs text-slate-700">
                             <input
                               type="checkbox"
                               checked={planFeatured}
@@ -971,7 +971,7 @@ export function AdminDashboard({
                             <button
                               type="button"
                               onClick={() => setEditingPlanId(null)}
-                              className="rounded-lg border border-white/15 px-4 py-2 text-xs text-slate-300 cursor-pointer"
+                              className="rounded-lg border border-slate-200 px-4 py-2 text-xs text-slate-700 cursor-pointer"
                             >
                               Cancel
                             </button>
@@ -980,7 +980,7 @@ export function AdminDashboard({
                       ) : (
                         <div>
                           <div className="flex items-center justify-between">
-                            <h3 className="font-display text-xl font-bold text-white">
+                            <h3 className="font-display text-xl font-bold text-slate-950">
                               {plan.name}
                             </h3>
                             <button
@@ -993,19 +993,19 @@ export function AdminDashboard({
                                 setPlanFeaturesText(features.join('\n'));
                                 setPlanFeatured(plan.isFeatured);
                               }}
-                              className="inline-flex items-center gap-1 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-200 hover:bg-white/10 cursor-pointer"
+                              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-700 hover:bg-slate-100 cursor-pointer"
                             >
                               <Edit3 className="h-3.5 w-3.5" />
                               <span>Edit</span>
                             </button>
                           </div>
-                          <p className="mt-2 font-mono text-xl font-bold text-violet-300">
+                          <p className="mt-2 font-mono text-xl font-bold text-violet-700">
                             {plan.priceDisplay}
                           </p>
-                          <p className="mt-2 text-xs text-slate-400">
+                          <p className="mt-2 text-xs text-slate-600">
                             {plan.tagline}
                           </p>
-                          <ul className="mt-4 space-y-1.5 text-xs text-slate-300">
+                          <ul className="mt-4 space-y-1.5 text-xs text-slate-700">
                             {features.map((f) => (
                               <li key={f}>• {f}</li>
                             ))}
@@ -1026,7 +1026,7 @@ export function AdminDashboard({
                   return (
                     <div
                       key={member.id}
-                      className="glass-surface rounded-2xl border border-white/10 p-6"
+                      className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs"
                     >
                       {isEditing ? (
                         <form
@@ -1038,22 +1038,22 @@ export function AdminDashboard({
                             value={teamName}
                             onChange={(e) => setTeamName(e.target.value)}
                             placeholder="Name"
-                            className="w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <input
                             type="text"
                             value={teamRole}
                             onChange={(e) => setTeamRole(e.target.value)}
                             placeholder="Designation"
-                            className="w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <textarea
                             rows={3}
                             value={teamBio}
                             onChange={(e) => setTeamBio(e.target.value)}
-                            className="w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white"
+                            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900"
                           />
-                          <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-violet-400/40 bg-violet-500/10 px-3 py-2 text-xs text-violet-200">
+                          <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-violet-300 bg-violet-50 px-3 py-2 text-xs font-semibold text-violet-700">
                             <Upload className="h-3.5 w-3.5" />
                             <span>Upload New Photo</span>
                             <input
@@ -1068,7 +1068,7 @@ export function AdminDashboard({
                             value={teamAvatar}
                             onChange={(e) => setTeamAvatar(e.target.value)}
                             placeholder="Photo URL"
-                            className="w-full rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white"
+                            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900"
                           />
                           <div className="flex gap-2">
                             <button
@@ -1080,7 +1080,7 @@ export function AdminDashboard({
                             <button
                               type="button"
                               onClick={() => setEditingTeamId(null)}
-                              className="rounded-lg border border-white/15 px-4 py-2 text-xs text-slate-300 cursor-pointer"
+                              className="rounded-lg border border-slate-200 px-4 py-2 text-xs text-slate-700 cursor-pointer"
                             >
                               Cancel
                             </button>
@@ -1097,10 +1097,10 @@ export function AdminDashboard({
                                 className="h-12 w-12 rounded-full object-cover object-top"
                               />
                               <div>
-                                <p className="text-xs text-violet-300">
+                                <p className="text-xs font-semibold text-violet-700">
                                   {member.designation}
                                 </p>
-                                <h3 className="font-display text-base font-semibold text-white">
+                                <h3 className="font-display text-base font-semibold text-slate-950">
                                   {member.name}
                                 </h3>
                               </div>
@@ -1115,12 +1115,12 @@ export function AdminDashboard({
                                 setTeamAvatar(member.avatarUrl);
                                 setTeamIsDemo(member.isDemo);
                               }}
-                              className="rounded-lg border border-white/15 bg-white/5 p-2 text-slate-300 hover:text-white cursor-pointer"
+                              className="rounded-lg border border-slate-200 bg-slate-50 p-2 text-slate-600 hover:text-slate-950 cursor-pointer"
                             >
                               <Edit3 className="h-3.5 w-3.5" />
                             </button>
                           </div>
-                          <p className="mt-3 text-xs leading-relaxed text-slate-400">
+                          <p className="mt-3 text-xs leading-relaxed text-slate-600">
                             {member.bio}
                           </p>
                         </div>
@@ -1139,7 +1139,7 @@ export function AdminDashboard({
                   return (
                     <div
                       key={study.id}
-                      className="glass-surface rounded-2xl border border-white/10 p-6"
+                      className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs"
                     >
                       {isEditing ? (
                         <form
@@ -1151,65 +1151,65 @@ export function AdminDashboard({
                             value={caseClient}
                             onChange={(e) => setCaseClient(e.target.value)}
                             placeholder="Client Name"
-                            className="rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <input
                             type="text"
                             value={caseIndustry}
                             onChange={(e) => setCaseIndustry(e.target.value)}
                             placeholder="Industry"
-                            className="rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <input
                             type="text"
                             value={caseDuration}
                             onChange={(e) => setCaseDuration(e.target.value)}
                             placeholder="Duration"
-                            className="rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <input
                             type="text"
                             value={caseBudget}
                             onChange={(e) => setCaseBudget(e.target.value)}
                             placeholder="Ad Budget"
-                            className="rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <input
                             type="number"
                             value={caseLeads}
                             onChange={(e) => setCaseLeads(e.target.value)}
                             placeholder="Leads Generated"
-                            className="rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <input
                             type="text"
                             value={caseCpl}
                             onChange={(e) => setCaseCpl(e.target.value)}
                             placeholder="Cost Per Lead"
-                            className="rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <textarea
                             rows={2}
                             value={caseObjective}
                             onChange={(e) => setCaseObjective(e.target.value)}
                             placeholder="Objective"
-                            className="sm:col-span-2 rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="sm:col-span-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <textarea
                             rows={2}
                             value={caseStrategy}
                             onChange={(e) => setCaseStrategy(e.target.value)}
                             placeholder="Strategy"
-                            className="sm:col-span-2 rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="sm:col-span-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
                           <textarea
                             rows={2}
                             value={caseResults}
                             onChange={(e) => setCaseResults(e.target.value)}
                             placeholder="Campaign Results"
-                            className="sm:col-span-2 rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-sm text-white"
+                            className="sm:col-span-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900"
                           />
-                          <label className="sm:col-span-2 flex items-center gap-2 text-xs text-slate-300">
+                          <label className="sm:col-span-2 flex items-center gap-2 text-xs text-slate-700">
                             <input
                               type="checkbox"
                               checked={caseIsDemo}
@@ -1227,7 +1227,7 @@ export function AdminDashboard({
                             <button
                               type="button"
                               onClick={() => setEditingCaseId(null)}
-                              className="rounded-lg border border-white/15 px-4 py-2 text-xs text-slate-300 cursor-pointer"
+                              className="rounded-lg border border-slate-200 px-4 py-2 text-xs text-slate-700 cursor-pointer"
                             >
                               Cancel
                             </button>
@@ -1236,16 +1236,16 @@ export function AdminDashboard({
                       ) : (
                         <div className="flex flex-wrap items-start justify-between gap-4">
                           <div>
-                            <p className="text-xs text-violet-300">
+                            <p className="text-xs font-semibold text-sky-600">
                               {study.industry} ·{' '}
                               {study.isDemo
                                 ? 'Demonstration Data'
                                 : 'Verified Campaign'}
                             </p>
-                            <h3 className="font-display text-lg font-bold text-white">
+                            <h3 className="font-display text-lg font-bold text-slate-950">
                               {study.clientName}
                             </h3>
-                            <p className="mt-1 text-xs text-slate-400">
+                            <p className="mt-1 text-xs text-slate-600">
                               Budget: {study.adBudget} · Leads:{' '}
                               {study.leadsGenerated} · CPL: {study.costPerLead}
                             </p>
@@ -1265,7 +1265,7 @@ export function AdminDashboard({
                               setCaseResults(study.resultsSummary);
                               setCaseIsDemo(study.isDemo);
                             }}
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-xs text-slate-200 hover:bg-white/10 cursor-pointer"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-700 hover:bg-slate-100 cursor-pointer"
                           >
                             <Edit3 className="h-3.5 w-3.5" />
                             <span>Edit Case Study</span>
@@ -1282,11 +1282,11 @@ export function AdminDashboard({
             {activeTab === 'enquiries' && (
               <div className="mt-8 space-y-4">
                 {enquiries.length === 0 ? (
-                  <div className="glass-surface rounded-2xl border border-white/10 p-10 text-center">
-                    <p className="font-display text-lg font-semibold text-white">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center shadow-xs">
+                    <p className="font-display text-lg font-semibold text-slate-950">
                       No consultation enquiries yet
                     </p>
-                    <p className="mt-1 text-sm text-slate-400">
+                    <p className="mt-1 text-sm text-slate-600">
                       Leads submitted from the contact form will appear here.
                     </p>
                   </div>
@@ -1294,12 +1294,12 @@ export function AdminDashboard({
                   enquiries.map((item) => (
                     <div
                       key={item.id}
-                      className="glass-surface rounded-2xl border border-white/10 p-6"
+                      className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs"
                     >
                       <div className="flex flex-wrap items-start justify-between gap-4">
                         <div>
-                          <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
-                            <span className="font-semibold text-violet-300">
+                          <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                            <span className="font-semibold text-violet-700">
                               {item.serviceRequired}
                             </span>
                             <span aria-hidden="true">·</span>
@@ -1311,13 +1311,13 @@ export function AdminDashboard({
                               {new Date(item.createdAt).toLocaleDateString()}
                             </span>
                           </div>
-                          <h3 className="mt-1 font-display text-lg font-bold text-white">
+                          <h3 className="mt-1 font-display text-lg font-bold text-slate-950">
                             {item.name} — {item.businessName}
                           </h3>
-                          <p className="mt-1 text-xs text-slate-300">
+                          <p className="mt-1 text-xs text-slate-600">
                             {item.email} · {item.phone}
                           </p>
-                          <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                          <p className="mt-3 text-sm leading-relaxed text-slate-700">
                             {item.message}
                           </p>
                         </div>
@@ -1329,7 +1329,7 @@ export function AdminDashboard({
                               handleUpdateEnquiryStatus(item.id, e.target.value)
                             }
                             aria-label="Lead status"
-                            className="rounded-lg border border-white/15 bg-[#050811] px-3 py-2 text-xs text-white"
+                            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900"
                           >
                             <option value="new">New</option>
                             <option value="contacted">Contacted</option>
@@ -1343,7 +1343,7 @@ export function AdminDashboard({
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/15 px-3 py-2 text-xs font-medium text-emerald-200 hover:bg-emerald-500/25"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-800 hover:bg-emerald-100"
                           >
                             <MessageCircle className="h-3.5 w-3.5" />
                             <span>WhatsApp</span>

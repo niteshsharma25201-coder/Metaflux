@@ -4,9 +4,9 @@ import type {
   TestimonialItem,
 } from '../types/agency.ts';
 
-export const AGENCY_WHATSAPP_NUMBER = '919876543210';
+export const AGENCY_WHATSAPP_NUMBER = '917879733808';
 export const AGENCY_EMAIL = 'hello@metaflux.agency';
-export const AGENCY_PHONE = '+91 98765 43210';
+export const AGENCY_PHONE = '+91 7879733808';
 
 export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   'All',
